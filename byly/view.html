@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加载中...</title>
+  <link href="./css.css" rel="stylesheet" type="text/css"/>
+
+  <script>
+    // 设置跳转链接和等待时间
+    var redirectUrl = "https://10.147.17.161:1234";
+    var errorPage = "error.html";
+    var delaySeconds = 5;
+
+    // 页面加载完毕后立即跳转
+    window.onload = function() {
+      window.location.href = redirectUrl;
+    };
+
+    // 检查新页面是否成功加载
+    setTimeout(function() {
+      if (document.visibilityState !== 'hidden') {                      
+        // 如果新页面未加载成功
+        window.location.href = errorPage;
+      }
+    }, delaySeconds * 1000);
+  </script>
+</head>
+<body>
+  <h1>页面即将跳转</h1>
+  <div class="loader"></div>
+  <p>请稍后...</p>
+  <p><b>若长时间未跳转，请返回并重试</b></p>
+
+  <footer>
+    系统编写/管理：何相龙
+  </footer>
+</body>
+</html>
