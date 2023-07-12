@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>在线留言册</title>
+  <title>加载中...</title>
   <link href="./css.css" rel="stylesheet" type="text/css"/>
   <script src="https://gapi.bmy114.com/static/js/chat-front.js"></script>
   <script>
-    ROXCHAT.init({
-        ROXCHAT_URL:"https://gapi.bmy114.com/",
-        ROXCHAT_KEFU_ID: "bg5AQFc2Vw05ankSV3kvRAAJZ1lRdAUSPncJUXRNaVtfRlpqcH1bXw9we1xxBCYDEwsNVyQIGxwMDw==",
-        ROXCHAT_BTN_TEXT: "Welcome",
-        ROXCHAT_LANG:"cn",
-        CHAT_STYLEID: "381"
-    })
+    // 设置跳转链接和等待时间
+    var redirectUrl = "../index.html";
+    var errorPage = "error.html";
+    var delaySeconds = 5;
+
+    // 页面加载完毕后立即跳转
+    window.onload = function() {
+      window.location.href = redirectUrl;
+    };
+
+    // 检查新页面是否成功加载
+    setTimeout(function() {
+      if (document.visibilityState !== 'hidden') {                      
+        // 如果新页面未加载成功
+        window.location.href = errorPage;
+      }
+    }, delaySeconds * 1000);
   </script>
 </head>
 <body>
-  <h1>毕业在线留言册</h1>
-  <div class="button-container">
-    <a class="button" href="submit.html">添加留言</a>
-    <a class="button" href="view.html">查看留言</a>
-  </div>
+  <h1>页面即将跳转</h1>
+  <div class="loader"></div>
+  <p>请稍后...</p>
+  <p><b>若长时间未跳转，请返回并重试</b></p>
 
   <footer>
     系统编写/管理：何相龙
