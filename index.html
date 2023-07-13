@@ -22,6 +22,7 @@
 <body>
   <div id="warning">
   <h1>毕业纪念册</h1>
+  <p>关帝庙街小学六年级四班</p>
   <template>
     <el-alert
     title="此系统尚未开发完毕"
@@ -49,7 +50,7 @@
     <!-- Table -->
     <el-button type="text" @click="dialogTableVisible = true">更新日志</el-button>
     
-    <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+    <el-dialog title="更新日志" :visible.sync="dialogTableVisible">
       <el-table :data="gridData">
         <el-table-column property="date" label="更新日期" width="150"></el-table-column>
         <el-table-column property="versions" label="版本号" width="150"></el-table-column>
