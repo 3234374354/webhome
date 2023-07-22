@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>毕业纪念册</title>
+  <link href="./css.css" rel="stylesheet" type="text/css"/>
+  <link href="./indexcss.css" rel="stylesheet" type="text/css"/>
+  <script src="https://gapi.bmy114.com/static/js/chat-front.js"></script>
+  <script>
+    ROXCHAT.init({
+        ROXCHAT_URL:"https://gapi.bmy114.com/",
+        ROXCHAT_KEFU_ID: "bg5AQFc2Vw05ankSV3kvRAAJZ1lRdAUSPncJUXRNaVtfRlpqcH1bXw9we1xxBCYDEwsNVyQIGxwMDw==",
+        ROXCHAT_BTN_TEXT: "Welcome",
+        ROXCHAT_LANG:"cn",
+        CHAT_STYLEID: "381"
+    })
+
+  </script>
+
+</head>
+<body>
+  <div id="warning">
+  <h1>毕业纪念册</h1>
+  <template>
+    <el-alert
+    title="此系统尚未开发完毕"
+    type="warning"
+    description="如出现异常，可在主页下方与我联系"
+    center
+    closable
+    show-icon>
+  </el-alert>
+  </template>
+  </div>
+  <div>
+  <h2>在线留言</h2>
+  <div class="button-container">
+    <a class="button" href="./byly/submit.html">添加留言</a>
+    <a class="button" href="./byly/view.html">查看留言</a>
+
+  <br>
+  <br>
+  <p>更多功能，尽请期待...</p>
+  <br>
+  <br>
+  </div>
+  <div id="log">
+    <!-- Table -->
+    <el-button type="text" @click="dialogTableVisible = true">更新日志</el-button>
+    
+    <el-dialog title="更新日志" :visible.sync="dialogTableVisible">
+      <el-table :data="gridData">
+        <el-table-column property="date" label="更新日期" width="150"></el-table-column>
+        <el-table-column property="versions" label="版本号" width="150"></el-table-column>
+        <el-table-column property="details" label="更新内容"></el-table-column>
+      </el-table>
+    </el-dialog>
+  </div>
+  
+  <footer>
+    系统编写/管理：何相龙
+  </footer>
+
+
+</body>
+</script>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="./element-ui/lib/theme-chalk/index.css">
+<link rel="stylesheet" href="./icon.css">
+<!-- 引入vue -->
+<script src="./vue@2/dist/vue.js"></script>
+<!-- 组件库 -->
+
+<!-- 引入组件库 -->
+<script src="./element-ui/lib/index.js"></script>
+</head>
+    <script>
+      new Vue().$mount('#warning')
+    </script>
+    <script>
+      var Main = {
+    data() {
+      return {
+        gridData: [{
+          date: '2023年7月12日',
+          versions: 'V0.1（beta）',
+          details: '第一个测试版（功能尚不完善）'
+        }],
+        dialogTableVisible: false,
+        dialogFormVisible: false,
+        form: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        formLabelWidth: '120px'
+      };
+    }
+  };
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#log')
+    </script>
+
+</html>
+<!-- 更新日志新数据模板
+  , {
+          date: '2023年7月12日',
+          versions: 'V0.1（beta）',
+          details: '第一个测试版（功能尚不完善）'
+        } -->
